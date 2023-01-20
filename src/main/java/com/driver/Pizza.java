@@ -29,7 +29,6 @@ public class Pizza {
 
     public void addExtraCheese(){
         if(asked_top==false){
-            this.bill+="Extra Cheese Added: 80 \n";
             this.price+=Extra_Cheese;
             asked_top=true;
         }
@@ -40,12 +39,10 @@ public class Pizza {
     public void addExtraToppings(){
         if(asked==false){
             if(isVeg==false){
-                this.bill+="Extra Toppings For Non-veg Pizza = 120 \n";
                 this.price+=120;
                 asked=true;
                 return;
             }
-            this.bill+="Extra Toppings Added: 70 \n";
             this.price+=Extra_Topping;
             asked=true;
         }
@@ -60,6 +57,16 @@ public class Pizza {
     }
 
     public String getBill(){
+        if(asked_top==true){
+            this.bill+="Extra Cheese Added: 80 \n";
+        }
+        if(asked==true){
+            if(isVeg==true){
+                this.bill+="Extra Toppings Added: 70 \n";
+            }else{
+                this.bill+="Extra Toppings Added: 120 \n";
+            }
+        }
         if(Pager_Bag>20){
             this.bill+="Paperbag Added: "+Integer.toString(Pager_Bag)+"\n";
         }
