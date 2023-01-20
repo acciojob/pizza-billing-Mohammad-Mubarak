@@ -49,6 +49,7 @@ public class Pizza {
     public void addTakeaway(){
         // your code goes here
         this.price+=20;
+        Pager_Bag+=20;
     }
 
     public String getBill(){
